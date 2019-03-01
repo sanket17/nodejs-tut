@@ -1,0 +1,94 @@
+-----------------------------------------------------------------------------------------------------------------
+Environments
+-----------------------------------------------------------------------------------------------------------------
+- To get information about Environments in nodejs use the below methods:
+    process.env.NODE_ENV
+    or
+    app.get('env')
+- To change the environment setting from command prompt use command;
+    export NODE_ENV=<value that we want to specify>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Configuration
+-----------------------------------------------------------------------------------------------------------------
+- config is the package that is used to set/get different environment properties.
+- After installing this package, create a folder named config and inside that folder create json file named :
+    for development : development.json
+    for production : production.json .. so on 
+- Use config.get('property-name') to fetch the value from the config file.
+- We can also save password and secret message using environment variables.
+- Use following command to save the password :
+    export app_password = 1234 //app_password is variables
+- In the custom file map this variable to one property as:
+    {
+        "password" : "app_password"
+    } 
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+Debugging
+-----------------------------------------------------------------------------------------------------------------
+- use Debug module for debugging purpose, we can set it using environment.
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+Templating Engines
+-----------------------------------------------------------------------------------------------------------------
+- Sometimes, instead of returning just a message in response we want to return html page.
+- There are various View Engine/ Template Engine which return html page viz, Pug, mustache, ejs etc.
+- Install pug, in app.js add the following code:
+    const pug = require('pug');
+
+    app.set('view engine', 'pug');
+    app.set('views','./views');
+
+    app.get('/', function (req, res) {
+     var htmlTemp = pug.renderFile('./views/index.pug', {title:'My Express App', message:'Hello World'});
+     res.send(htmlTemp);
+    })
+- Create a folder viz, views and in that create a file called index.pug, write the bellow scripted code that will generated the html page.
+    html
+    head
+        title=title
+    body
+        h1=message
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+Structuring Express Application
+-----------------------------------------------------------------------------------------------------------------
+- To use router object in file use 
+    const router = express.Router();
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+Synchronous vs Asynchronous Code
+-----------------------------------------------------------------------------------------------------------------
+- Asynchronous Code - Example of a hotel waiter, he takes the order from table 1 and instead of waiting to get order to get prepared, he moves over next table to get the order.
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+Patterns for dealing with Asynchronous Code
+-----------------------------------------------------------------------------------------------------------------
+- There are 3 ways for dealing with async code.
+    1. callbacks
+    2. promises
+    3. async/await.
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+Callbacks
+-----------------------------------------------------------------------------------------------------------------
+- Callback are the function which gets called when we complete async task.
+ex>
+   
+getUserById(1,(user) => {
+    console.log(user);
+});
+
+
+function getUserById(id, callback){
+    setTimeout(()=>{
+        console.log('Reading user data');
+        callback({id: id, userName: 'Sanket'});
+    }, 2000);
+}
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+Callback Hell - Named function to rescue
+-----------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------

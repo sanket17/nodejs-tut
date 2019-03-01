@@ -1,0 +1,90 @@
+GETTING STARTED WITH CI
+
+
+STEP 1: First we should be having java installed.
+	If not we got it installed.
+
+STEP 2: We installed Git and gradle given to us by Bhaskar
+
+STEP 3: set up environment variable path to gradle's bin.
+
+STEP 4: Login to Gerrit.
+
+STEP 5: Selected our project (firstly it was Inside) and copied our SSH key
+
+STEP 6: Then we went to C:/ where our Git was installed, path: Git->usr->bin->ssh-keygen.
+	click on ssh-keygen and enter. 
+
+STEP 7: Go to your user(for example:c:/User/Your-user), here you will find .ssh folder, go inside it and you will find 
+	id_rsa open it copy that key.
+
+STEP 8: Now paste that key in gerrit. Go to gerrit->settings->SSH Public Key, paste here and click on add.
+
+**[Note: You Must be having config file in your .ssh folder.]
+
+STEP 9: Now select your respective project, Project->list-> click on your project
+
+STEP 10: Click on SSH
+
+STEP 11: Click on clone with commit msg hook, copy the URL
+
+STEP 12: Open Git bash on your system, go to the folder you want to keep your project
+
+STEP 13: Paste the copied URL and hit enter.(If suucessful, it should create your empty project folder there )
+
+STEP 14: Set your username and mail to git. 	git config --global user.name "your user name"
+ 						git config --global user.email "your mail"
+
+	 To check it is set or not use: 	git config --global user.name
+						git config --global user.email
+
+------------------------------------------------------------
+
+PUSHING CODE TO GERRIT:
+
+
+**[Note: You Must be have username and mail set to push your code.]
+
+STEP 1: Open git bash, Go inside your local git repository
+
+STEP 2: Now run, git status ( It shows a list of files added or modified /deleted)
+
+STEP 3: Add files in your project folder that you want to push in gerrit
+
+STEP 4: git add . --all (adds you all files)
+
+STEP 5: git commit -m "provide a message" (commits it)
+
+STEP 6: git push origin master:refs/for/master (If you see new Branch created this means your change has been pushed to 	gerrit)
+
+STEP 7: If its successfu go to gerrit , click on my , it should show your change , click on it On right hand side you have 	a link to add reviewer
+
+---------------------------------------------------------------
+
+GIT RESET
+
+STEP 1: Run the bellow command
+	git reset --hard origin/branch-name
+
+STEP 2: Do git pull
+
+STEP 3: Apply our changes again.
+
+STEP 4: push your respected code.
+--------------------------------------------------------------
+GIT STASH
+
+STEP 1: Run the bellow command
+	git stash
+
+STEP 2: Do git pull
+
+STEP 3: Run the bellow command
+	git stash apply
+-------------------------------------------------------------
+GIT AMEND
+Then git commit --amend -m "your original comments" and git push again, this time you can have your fix merged.
+-------------------------------------------------------------
+
+4h/sPZ0wItHmGhwv2Xz13zv7nxW7uE4asKWpaKc8Mg
+
